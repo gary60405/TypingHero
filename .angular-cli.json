@@ -19,6 +19,10 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+        "../node_modules/font-awesome/css/font-awesome.min.css",
+        "../node_modules/primeng/resources/primeng.min.css",
+        "../node_modules/primeng/resources/themes/omega/theme.css",
         "styles.css"
       ],
       "scripts": [],
@@ -27,8 +31,7 @@
         "dev": "environments/environment.ts",
         "prod": "environments/environment.prod.ts"
       }
-    }
-  ],
+    }],
   "e2e": {
     "protractor": {
       "config": "./protractor.conf.js"

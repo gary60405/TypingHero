@@ -1,0 +1,23 @@
+.music {
+  width: 5vh;
+  height: 5vh;
+  cursor: pointer;
+}
+
+.notMuted {
+  background-image: url('./../../assets/volume-control.svg');
+}
+
+.isMuted {
+  background-image: url('./../../assets/mute-audio.svg');
+}
+
+.username {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  color: #fff;
+}
+
+

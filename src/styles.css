@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: popFont;
+  src: url("assets/DFYuan-W8-WINP-BF.ttf");
+}
+
+* {
+  font-family: "Comic Sans MS", popFont;
+}
+
+body {
+  background-image: url("assets/bg.svg");
+  background-size: 100vh 100vh;
+}

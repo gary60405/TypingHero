@@ -1,0 +1,22 @@
+<p-selectButton id="rank"
+                [options]="ranking"
+                [(ngModel)]="selectedRanking"
+                (onChange)="change()"></p-selectButton>
+
+<table id="table" class="table table-hover table-inverse">
+    <thead>
+      <tr>
+        <th>名次</th>
+        <th>名稱</th>
+        <th>得分</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of rows;let i = index" title="{{row.time}}" >
+        <th scope="row" *ngIf="row.name!='-'">{{i+1}}</th>
+        <th scope="row" *ngIf="row.name=='-'">-</th>
+        <td>{{row.name}}</td>
+        <td pTooltip="{{row.time}}">{{row.score}}</td>
+      </tr>
+    </tbody>
+  </table>

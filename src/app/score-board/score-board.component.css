@@ -1,0 +1,44 @@
+#table {
+  font-size: 1.5em;
+  width:40%;
+  text-align: center;
+  position: absolute;
+  top:15%;
+  left:50%;
+  transform: translate(-50%, 0%);
+}
+#table th {
+  text-align: center;
+}
+#rank {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+tbody, th, tr { display: block; }
+
+
+tbody {
+  height: 500px;
+  overflow-y: auto;
+  width: 100%;
+}
+
+tbody td {
+  width: 34%;
+  float: left;
+}
+
+tbody th {
+  width: 30%;
+  float: left;
+}
+
+thead th {
+  text-indent: -5%;
+  width: 33.3333%;
+  float: left;
+}
+

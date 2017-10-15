@@ -1,0 +1,31 @@
+<nav class="navbar navbar-dark bg-dark">
+  <a routerLink="/" class="navbar-brand" style="font-family:'微軟正黑體';cursor:pointer;font-weight:900;" >
+      <img src="assets/brand.svg" height="40" class="d-inline-block align-top">
+  </a>
+  <div class="d-flex justify-content-end align-items-center">
+    <div class="navbar-item username">嗨, {{this.shareService.name}}</div>
+    <div class="btn-group btn-group-lg navbar-item " role="group">
+      <button type="button"
+              class="btn btn-dark"
+              [ngClass]="{'active':scoreBoard}"
+              (click)="onScoreBoard('scoreBoard')"
+              routerLink="/scoreBoard">排行榜</button>
+      <button type="button"
+              class="btn btn-dark"
+              [ngClass]="{'active':underText}"
+              (click)="onChange('underText')"
+              routerLink="/">小寫</button>
+      <button type="button"
+              class="btn btn-dark"
+              [ngClass]="{'active':upperText}"
+              (click)="onChange('upperText')"
+              routerLink="/">大寫</button>
+      <button type="button"
+              class="btn btn-dark"
+              [ngClass]="{'active':tsText}"
+              (click)="onChange('tsText')"
+              routerLink="/">注音</button>
+    </div>
+    <div [ngClass]="{'isMuted': this.musicService.isMuted, 'notMuted': !this.musicService.isMuted}" class="music navbar-item" (click)="toggleMute()"></div>
+  </div>
+</nav>
