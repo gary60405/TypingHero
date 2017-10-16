@@ -5,9 +5,20 @@
 
 * {
   font-family: "Comic Sans MS", popFont;
+  user-select: none;
+  cursor:default;
 }
 
 body {
   background-image: url("assets/bg.svg");
   background-size: 100vh 100vh;
 }
+
+.ui-growl {
+  top:10%;
+}
+
+.ui-tooltip-text {
+  font-size: 1.1rem;
+}
+

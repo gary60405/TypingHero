@@ -35,7 +35,11 @@ export class ScoreBoardComponent implements OnInit, OnDestroy {
 
   fetchFromFirebase(datetime: string) {
     const date = this.datetimeService.formateDateTime(datetime);
-    this.itemRef = this.db.list('/data', ref => ref.orderByChild('time').startAt(date).limitToLast(100));
+    if (datetime === 'year') {
+      this.itemRef = this.db.list('/data', ref => ref.orderByChild('score').endAt(50000).limitToLast(100));
+    } else {
+      this.itemRef = this.db.list('/data', ref => ref.orderByChild('time').startAt(date));
+    }
     this.items = this.itemRef.valueChanges();
     this.itemSubscription = this.items
       .subscribe(item => {
@@ -46,7 +50,7 @@ export class ScoreBoardComponent implements OnInit, OnDestroy {
           item.sort((a, b) => {
             return b.score - a.score;
           });
-          this.rows = item;
+          this.rows = item.slice(0, 100);
         }
       );
   }

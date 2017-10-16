@@ -45,7 +45,7 @@
   height: 100%;
   background-image: url('./../../assets/score_board.svg');
   background-repeat: no-repeat;
-  z-index: 10000;
+  z-index: 1000;
 }
 
 .boardShow {
@@ -102,8 +102,8 @@
   text-decoration: none;
   text-align: center;
   color: white;
-  width: 20%;
-  height: 13%;
+  width: 30%;
+  height: 15%;
   background: #3498DB;
   padding: 5px;
   font-size: 2.5vh;
@@ -270,6 +270,9 @@
   animation-duration: 0.8s;
   animation-fill-mode: forwards;
 }
+.warningBoarder {
+  border: 3px solid rgb(255, 104, 104);
+}
 
 @keyframes baner {
   from {
@@ -410,7 +413,7 @@
     top:-100%;
   }
   to {
-    top:-50%;
+    top:calc(-50% + 66px);
   }
 }
 

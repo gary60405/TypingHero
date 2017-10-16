@@ -12,11 +12,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let row of rows;let i = index" title="{{row.time}}" >
+      <tr *ngFor="let row of rows;let i = index">
         <th scope="row" *ngIf="row.name!='-'">{{i+1}}</th>
         <th scope="row" *ngIf="row.name=='-'">-</th>
         <td>{{row.name}}</td>
-        <td pTooltip="{{row.time}}">{{row.score}}</td>
+        <td pTooltip="{{row.time != '-' ? (row.time | date:'y/MM/dd HH:mm:ss') : ''}}">{{row.score}}</td>
       </tr>
     </tbody>
-  </table>
+</table>

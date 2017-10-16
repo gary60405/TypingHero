@@ -21,6 +21,7 @@ export class HeaderComponent implements OnInit {
   upperText = false;
   tsText = false;
   scoreBoard = false;
+  date = new Date();
 
   ngOnInit() {
     this.stageService.timerSubject

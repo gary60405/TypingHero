@@ -1,18 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
-import { DatetimeService } from './datetime.service';
 import { HttpClient, HttpRequest } from '@angular/common/http';
 @Injectable()
 export class ShareService {
 
-  constructor(private httpClient: HttpClient,
-              private datetimeService: DatetimeService) { }
+  constructor(private httpClient: HttpClient) { }
 
 
   public data = {};
   public name = '無名英雄';
   public score = 0;
-  public gameoverScore: number;
+  public gameoverScore = 0;
   public scoreSubject = new Subject<number>();
   public displaySubject = new Subject<boolean>();
   public isDie = true;
@@ -26,7 +24,7 @@ export class ShareService {
 
   saveToFirebase() {
     this.data = {};
-    this.data['time'] = this.datetimeService.formateDateTime('full');
+    this.data['time'] = new Date;
     this.data['name'] = this.name;
     this.data['score'] = this.gameoverScore;
     const req = new HttpRequest('POST', 'https://typinghero-1c004.firebaseio.com/data.json', this.data);

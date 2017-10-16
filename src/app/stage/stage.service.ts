@@ -51,7 +51,7 @@ export class StageService {
         k--;
       }
 
-      if (this.animalService.animalArray.length >= 20) {
+      if (this.animalService.animalArray.length >= 5) {
         this.timerSubject.next('random');
         this.gameOver();
       }

@@ -1,9 +1,10 @@
 .music {
   width: 5vh;
   height: 5vh;
+}
+.navbar-item button, .music {
   cursor: pointer;
 }
-
 .notMuted {
   background-image: url('./../../assets/volume-control.svg');
 }

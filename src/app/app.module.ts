@@ -12,12 +12,14 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import {DialogModule} from 'primeng/primeng';
 import {TooltipModule} from 'primeng/primeng';
+import {GrowlModule} from 'primeng/primeng';
 import {SelectButtonModule} from 'primeng/primeng';
 import { ScoreBoardComponent } from './score-board/score-board.component';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { DatetimeService } from './share/datetime.service';
 import { Routes,  RouterModule } from '@angular/router';
+import { MessageService } from 'primeng/components/common/messageservice';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyD-xG9a85R_NdQlP0sAw8Tp6PMWAEqAw38',
@@ -48,6 +50,7 @@ export const appRoutes: Routes = [
     BrowserAnimationsModule,
     DialogModule,
     TooltipModule,
+    GrowlModule,
     SelectButtonModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(firebaseConfig),
@@ -58,7 +61,8 @@ export const appRoutes: Routes = [
     ShareService,
     DatetimeService,
     MusicService,
-    AnimalService
+    AnimalService,
+    MessageService
   ],
   bootstrap: [AppComponent]
 })

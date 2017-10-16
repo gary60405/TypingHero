@@ -3,7 +3,7 @@
   width:40%;
   text-align: center;
   position: absolute;
-  top:15%;
+  top:20%;
   left:50%;
   transform: translate(-50%, 0%);
 }
@@ -11,11 +11,13 @@
   text-align: center;
 }
 #rank {
-  position: absolute;
+  position: fixed;
+  top:66px;
   left: 50%;
+  z-index: 1;
   transform: translateX(-50%);
 }
-
+/*
 
 tbody, th, tr { display: block; }
 
@@ -40,5 +42,5 @@ thead th {
   text-indent: -5%;
   width: 33.3333%;
   float: left;
-}
+} */
 
