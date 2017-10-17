@@ -33,7 +33,6 @@ export class StageComponent implements OnInit, OnDestroy {
   scoreSubscription: Subscription;
   displaySubscription: Subscription;
   animalSubscription: Subscription;
-  displayInfo = false;
   hadError = false;
   hadSuccess = true;
   errorMsg: Message[] = [{severity: 'error', summary: '不合法的名字', detail: '名字只能輸入中、英文或數字'}];
@@ -106,11 +105,9 @@ export class StageComponent implements OnInit, OnDestroy {
 
   onFormChange() {
     if (!this.nameForm.get('name').valid && this.nameForm.get('name').dirty) {
-      this.displayInfo = true;
       this.hadError = true;
       this.hadSuccess = true;
     } else {
-      this.displayInfo = false;
       if (this.hadSuccess && this.hadError) {
         this.successMsg = [];
         this.successMsg.push({severity: 'success', summary: '合法的名字', detail: '這個名字可以使用！'});

@@ -10,8 +10,8 @@
     </div>
 </div>
 <div class="stageMask">
-    <p-growl *ngIf="displayInfo" [(value)]="errorMsg" sticky="true"></p-growl>
-    <p-growl *ngIf="!displayInfo && hadError" [(value)]="successMsg"></p-growl>
+    <p-growl *ngIf="!this.nameForm.get('name').valid" [(value)]="errorMsg" sticky="true"></p-growl>
+    <p-growl *ngIf="this.nameForm.get('name').valid && hadError" [(value)]="successMsg" life="1500"></p-growl>
     <div class="black-mask bg-dark" [ngClass]="{'black-maskHide' : this.shareService.isStart}">
         <h1>遊戲規則</h1>
         <p>找找看鍵盤上的哪個按鍵跟動物身上的一樣，按下去就可以得到100分，來比賽誰得到最高分吧!</p>
@@ -20,7 +20,7 @@
               <label for="name">請輸入名字：</label>
               <input id="name"
                      type="text"
-                     [ngClass]="{'warningBoarder':displayInfo}"
+                     [ngClass]="{'warningBoarder':!nameForm.get('name').valid}"
                      [(ngModel)]="this.shareService.name"
                      formControlName="name"
                      class="form-control"
@@ -31,7 +31,7 @@
         </div>
     </div>
 
-      <div class="start-btn" [ngClass]="{'start-btnHide' : this.shareService.isStart}" (click)="onStart()">Start</div>
+      <div *ngIf="nameForm.get('name').valid" class="start-btn" [ngClass]="{'start-btnHide' : this.shareService.isStart}" (click)="onStart()">Start</div>
 </div>
 <p-dialog  [(visible)]="display" width="500" modal="true" closeOnEscape="true" showHeader="false">
   <p-header>
