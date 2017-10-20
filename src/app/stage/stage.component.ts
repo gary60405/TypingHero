@@ -87,7 +87,6 @@ export class StageComponent implements OnInit, OnDestroy {
             this.isDie = false;
             this.keyCode = this.animalService.animalArray[j].code;
             this.shareService.score += 100;
-            console.log(this.shareService.score);
             this.shareService.scoreSubject.next(this.shareService.score);
           }
         }
