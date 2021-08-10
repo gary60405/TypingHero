@@ -1,5 +1,4 @@
-import { Subject } from 'rxjs/Subject';
-import { Subscription } from 'rxjs/Subscription';
+import { Subject, Subscription } from 'rxjs';
 import { Injectable } from '@angular/core';
 
 import { AnimalService } from './../share/animal.service';

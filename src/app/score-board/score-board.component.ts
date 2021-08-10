@@ -1,9 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import {SelectItem} from 'primeng/primeng';
 import { AngularFireDatabase, AngularFireObject, AngularFireList } from 'angularfire2/database';
-import { Observable } from 'rxjs/Observable';
-import { Subject } from 'rxjs/Subject';
-import { Subscription } from 'rxjs/Subscription';
+import { Observable, Subscription, Subject } from 'rxjs';
 import * as firebase from 'firebase/app';
 import { DatetimeService } from '../share/datetime.service';
 

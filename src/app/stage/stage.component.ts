@@ -1,14 +1,11 @@
-import { Subscription } from 'rxjs/Subscription';
+import { Subject, Subscription } from 'rxjs';
 import { Animal } from './stage.model';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { StageService } from './stage.service';
-import { Subject } from 'rxjs/Subject';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MusicService } from '../share/music.service';
 import { ShareService } from '../share/share.service';
 import { AnimalService } from '../share/animal.service';
-import {Message} from 'primeng/components/common/api';
-import {MessageService} from 'primeng/components/common/messageservice';
 
 @Component({
   selector: 'app-stage',
@@ -20,8 +17,7 @@ export class StageComponent implements OnInit, OnDestroy {
   constructor(private stageService: StageService,
               public shareService: ShareService,
               private musicService: MusicService,
-              private animalService: AnimalService,
-              private messageService: MessageService) {}
+              private animalService: AnimalService) {}
 
   keyCode: string;
   score: number;

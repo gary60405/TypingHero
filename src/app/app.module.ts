@@ -10,16 +10,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import {DialogModule} from 'primeng/primeng';
-import {TooltipModule} from 'primeng/primeng';
-import {GrowlModule} from 'primeng/primeng';
-import {SelectButtonModule} from 'primeng/primeng';
 import { ScoreBoardComponent } from './score-board/score-board.component';
+import { AppRoutingModule } from './app-routing.module';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { DatetimeService } from './share/datetime.service';
 import { Routes,  RouterModule } from '@angular/router';
-import { MessageService } from 'primeng/components/common/messageservice';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyD-xG9a85R_NdQlP0sAw8Tp6PMWAEqAw38',
@@ -44,14 +40,24 @@ export const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
-    FormsModule,
+    AppRoutingModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes),
     BrowserAnimationsModule,
-    DialogModule,
-    TooltipModule,
-    GrowlModule,
-    SelectButtonModule,
+    CoreModule,
+    EffectsModule.forRoot([]),
+    StoreModule.forRoot(ROOT_REDUCERS, {
+      metaReducers,
+      runtimeChecks: {
+        // strictStateImmutability and strictActionImmutability are enabled by default
+        strictStateSerializability: true,
+        strictActionSerializability: true,
+        strictActionWithinNgZone: true,
+        strictActionTypeUniqueness: true,
+      },
+    }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    StoreRouterConnectingModule.forRoot()
+    BrowserAnimationsModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule
@@ -62,7 +68,6 @@ export const appRoutes: Routes = [
     DatetimeService,
     MusicService,
     AnimalService,
-    MessageService
   ],
   bootstrap: [AppComponent]
 })
