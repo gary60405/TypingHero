@@ -1,28 +1,50 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { AngularFireDatabase, AngularFireObject, AngularFireList } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList  } from '@angular/fire/database';
 import { Observable, Subscription, Subject } from 'rxjs';
-import * as firebase from 'firebase/app';
-import { DatetimeService } from '../share/datetime.service';
+import { DatetimeService } from '../../share/datetime.service';
 
 @Component({
   selector: 'app-score-board',
-  templateUrl: './score-board.component.html',
-  styleUrls: ['./score-board.component.css']
+  template: `
+      <!-- <p-selectButton id="rank"
+                      [options]="ranking"
+                      [(ngModel)]="selectedRanking"
+                      (onChange)="change()"></p-selectButton>
+
+      <table id="table" class="table table-hover table-inverse">
+          <thead>
+            <tr>
+              <th>名次</th>
+              <th>名稱</th>
+              <th>得分</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let row of rows;let i = index">
+              <th scope="row" *ngIf="row.name!='-'">{{i+1}}</th>
+              <th scope="row" *ngIf="row.name=='-'">-</th>
+              <td>{{row.name}}</td>
+              <td pTooltip="{{row.time != '-' ? (row.time | date:'y/MM/dd HH:mm:ss') : ''}}">{{row.score}}</td>
+            </tr>
+          </tbody>
+      </table> -->
+  `,
+  styles: [``]
 })
 export class ScoreBoardComponent implements OnInit, OnDestroy {
   itemRef: AngularFireList<any>;
   items: Observable<any>;
   rows = [];
-  ranking: SelectItem[];
+  // ranking: SelectItem[];
   rankingSubject = new Subject<string>();
   selectedRanking: string;
   itemSubscription: Subscription;
   constructor(private db: AngularFireDatabase,
               private datetimeService: DatetimeService) {
-    this.ranking = [];
-    this.ranking.push({label: '歷史排行', value: '歷史排行'});
-    this.ranking.push({label: '本月排行', value: '本月排行'});
-    this.ranking.push({label: '本日排行', value: '本日排行'});
+    // this.ranking = [];
+    // this.ranking.push({label: '歷史排行', value: '歷史排行'});
+    // this.ranking.push({label: '本月排行', value: '本月排行'});
+    // this.ranking.push({label: '本日排行', value: '本日排行'});
   }
 
   ngOnInit() {
@@ -67,7 +89,7 @@ export class ScoreBoardComponent implements OnInit, OnDestroy {
     }
   }
 
-  ngOnDestroy () {
+  ngOnDestroy() {
     this.itemSubscription.unsubscribe();
   }
 }

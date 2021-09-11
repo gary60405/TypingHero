@@ -1,0 +1,54 @@
+<div *ngFor="let animal of (animals$ | async)" [ngStyle]="animal.property.css"
+  [ngClass]="{'animal':true, 'animalWiggle': !animal.die, 'die': animal.die}">
+  <img src="assets/{{animal.name}}.svg" width="280px" alt="">
+  <p class="word">{{animal.text}}</p>
+</div>
+<div class="mask">
+  <div class="scoreBoard" [ngClass]="{'boardShow' : (gameState$ | async) === 'START'}">
+    <h1>{{score$ | async}}</h1>
+  </div>
+</div>
+<div class="stageMask">
+  <!-- <p-growl *ngIf="!this.nameForm.get('name').valid" [(value)]="errorMsg" sticky="true"></p-growl>
+  <p-growl *ngIf="this.nameForm.get('name').valid && hadError" [(value)]="successMsg" life="1500"></p-growl> -->
+  <div class="black-mask bg-dark" [ngClass]="{'black-maskHide' : (gameState$ | async) === 'START'}">
+    <h1>遊戲規則</h1>
+    <p>找找看鍵盤上的哪個按鍵跟動物身上的一樣，按下去就可以得到100分，來比賽誰得到最高分吧!</p>
+    <div class="form">
+      <!-- <form [formGroup]="nameForm">
+        <label for="name">請輸入名字：</label>
+        <input id="name" type="text" [ngClass]="{'warningBoarder':!nameForm.get('name').valid}"
+          [(ngModel)]="this.shareService.name" formControlName="name" class="form-control" placeholder="無名英雄"
+          maxlength="10" (input)="onFormChange()">
+      </form> -->
+    </div>
+  </div>
+
+  <!-- <div *ngIf="nameForm.get('name').valid" class="start-btn" [ngClass]="{'start-btnHide' : (gameState$ | async) === 'START'}"
+    (click)="onStart()">Start</div> -->
+</div>
+
+
+<ng-template #detailDialog>
+  <h1 mat-dialog-title class="text-center fw-bold">遊戲結束</h1>
+  <div mat-dialog-content style="height:calc(80vh - 100px - 48px);">
+    <div id="fix">
+      <div id="frame">
+        <div id="leaf-mask">
+          <div class="left-leaf"></div>
+          <div class="right-leaf"></div>
+        </div>
+        <div class="star"></div>
+        <div class="baner"></div>
+        <div class="score">{{score$ | async}}</div>
+      </div>
+    </div>
+  </div>
+  <div mat-dialog-actions class="row justify-content-center">
+    <button mat-raised-button
+            mat-dialog-close
+            class='w-50'
+            color="primary"
+            (click)="onStart()">再玩一次</button>
+  </div>
+</ng-template>

@@ -23,7 +23,7 @@
   animation-fill-mode: forwards;
 }
 
- .die {
+.die {
   animation-name: die;
   animation-duration: 0.3s;
   animation-fill-mode: forwards;
@@ -43,7 +43,7 @@
   left: 55%;
   width: 100%;
   height: 100%;
-  background-image: url('./../../assets/score_board.svg');
+  background-image: url('./../../../../assets/score_board.svg');
   background-repeat: no-repeat;
   z-index: 1000;
 }
@@ -201,7 +201,7 @@
   position: absolute;
   width:20%;
   height:80%;
-  background-image: url("./../../assets/left_leaf.svg");
+  background-image: url("./../../../../assets/left_leaf.svg");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   animation: left-leaf;
@@ -215,7 +215,7 @@
   position: absolute;
   width:20%;
   height:80%;
-  background-image: url("./../../assets/right_leaf.svg");
+  background-image: url("./../../../../assets/right_leaf.svg");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   animation: right-leaf;
@@ -233,7 +233,7 @@
   width:25%;
   height:25%;
   opacity: 0;
-  background-image: url("./../../assets/five-star.svg");
+  background-image: url("./../../../../assets/five-star.svg");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   animation: star;
@@ -248,7 +248,7 @@
   transform: translateX(-50%);
   width:50%;
   height:20%;
-  background-image: url("./../../assets/baner.svg");
+  background-image: url("./../../../../assets/baner.svg");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   animation: baner;

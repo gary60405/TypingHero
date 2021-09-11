@@ -3,11 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { NotFoundPageComponent } from './core/containers';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: '/zoo', pathMatch: 'full' },
   {
-    path: 'dashboard',
+    path: 'zoo',
     loadChildren: () =>
-      import('./dashboard/dashboard.module').then((m) => m.DashboardModule)
+      import('./zoo/zoo.module').then((m) => m.ZooModule)
   },
   {
     path: '**',
